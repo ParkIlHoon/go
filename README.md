@@ -3,6 +3,9 @@
     내가 운동 기록하려고 만든 서비스, GO
 </p>
 
+[![CodeFactor](https://www.codefactor.io/repository/github/parkilhoon/go/badge)](https://www.codefactor.io/repository/github/parkilhoon/go)
+[![CircleCI](https://circleci.com/gh/ParkIlHoon/go/tree/main.svg?style=svg)](https://circleci.com/gh/ParkIlHoon/go/tree/main)
+
 ## 기능
 * 나만의 루틴 관리
 * 루틴을 사용한 편리한 운동 기록
