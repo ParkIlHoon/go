@@ -17,8 +17,8 @@ jobs:
       - checkout
       - run: |
           ./gradlew test
-      - codecov/upload:
-          file: './build/reports/jacoco/test/jacocoTestReport.xml'
+#      - codecov/upload:
+#          file: './build/reports/jacoco/test/jacocoTestReport.xml'
   
   build:
     executor: docker-executor
