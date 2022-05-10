@@ -1,0 +1,8 @@
+rootProject.name = 'go'
+
+include 'main-application'
+
+include 'routine'
+include 'record'
+include 'exercise'
+include 'statistic'
