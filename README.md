@@ -5,6 +5,7 @@
 
 [![CodeFactor](https://www.codefactor.io/repository/github/parkilhoon/go/badge)](https://www.codefactor.io/repository/github/parkilhoon/go)
 [![CircleCI](https://circleci.com/gh/ParkIlHoon/go/tree/main.svg?style=svg)](https://circleci.com/gh/ParkIlHoon/go/tree/main)
+[![codecov](https://codecov.io/gh/ParkIlHoon/go/branch/master/graph/badge.svg?token=wbnDzry9Qs)](https://codecov.io/gh/ParkIlHoon/go)
 
 ## 기능
 * 나만의 루틴 관리
