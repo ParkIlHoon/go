@@ -18,8 +18,16 @@ jobs:
       - run: |
           ./gradlew test
           ./gradlew build
-#      - codecov/upload:
-#          file: './build/reports/jacoco/test/jacocoTestReport.xml'
+      - codecov/upload:
+          file: './exercise/build/reports/jacoco/test/jacocoTestReport.xml'
+      - codecov/upload:
+          file: './record/build/reports/jacoco/test/jacocoTestReport.xml'
+      - codecov/upload:
+          file: './routine/build/reports/jacoco/test/jacocoTestReport.xml'
+      - codecov/upload:
+          file: './statistic/build/reports/jacoco/test/jacocoTestReport.xml'
+      - codecov/upload:
+          file: './main-application/build/reports/jacoco/test/jacocoTestReport.xml'
 
 workflows:
   workflow:
