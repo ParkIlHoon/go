@@ -17,3 +17,13 @@
 * routine : 루틴 도메인 모듈
 * record : 기록 도메인 모듈
 * statistic : 통계 도메인 모듈
+
+## 로컬 개발환경 세팅
+### Docker 설치
+[docker 공식 사이트](https://www.docker.com/get-started/)
+### docker-compose 실행
+```shell
+cd dev-script
+docker-compose pull
+docker-compose -p go_project up -d
+```
