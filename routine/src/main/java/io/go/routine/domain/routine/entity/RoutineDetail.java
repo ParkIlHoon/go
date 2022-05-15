@@ -2,6 +2,7 @@ package io.go.routine.domain.routine.entity;
 
 import io.go.routine.domain.routine.converter.SetJsonConverter;
 import io.go.routine.domain.routine.vo.Set;
+import io.go.routine.interfaces.routine.dto.RoutineDetailDto;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Convert;
@@ -63,5 +64,13 @@ public class RoutineDetail {
         this.routine = routine;
         this.exerciseId = exerciseId;
         this.sets = sets;
+    }
+
+    public RoutineDetailDto.Response toDto() {
+        return RoutineDetailDto.Response.builder()
+            .id(this.id)
+            .exerciseId(this.exerciseId)
+            .sets(this.sets)
+            .build();
     }
 }

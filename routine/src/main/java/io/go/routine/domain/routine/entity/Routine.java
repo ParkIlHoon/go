@@ -1,8 +1,10 @@
 package io.go.routine.domain.routine.entity;
 
 import io.go.routine.domain.routine.vo.Set;
+import io.go.routine.interfaces.routine.dto.RoutineDto;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -89,5 +91,21 @@ public class Routine {
             routineSet.clear();
             routineSet.addAll(sets);
         }
+    }
+
+    /**
+     * 루틴을 제거합니다.
+     */
+    public void delete() {
+        this.isDeleted = true;
+    }
+
+    public RoutineDto.Response toDto() {
+        return RoutineDto.Response.builder()
+            .id(this.id)
+            .name(this.name)
+            .isDeleted(this.isDeleted)
+            .details(this.details.stream().map(RoutineDetail::toDto).collect(Collectors.toList()))
+            .build();
     }
 }

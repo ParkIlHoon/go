@@ -39,19 +39,20 @@ public interface RoutineService {
     /**
      * 루틴의 운동을 세팅합니다.
      *
+     * @param routineId  루틴 아이디
      * @param exerciseId 운동 아이디
      * @param sets       세트 정보
      * @return 루틴 DTO
      */
-    RoutineDto.Response setExercise(long exerciseId, List<Set> sets);
+    RoutineDto.Response setExercise(long routineId, long exerciseId, List<Set> sets);
 
     /**
      * 루틴의 운동을 제거합니다.
      *
+     * @param routineId  루틴 아이디
      * @param exerciseId 운동 아이디
-     * @return 루틴 DTO
      */
-    RoutineDto.Response deleteExercise(long exerciseId);
+    void deleteExercise(long routineId, long exerciseId);
 
     /**
      * 루틴을 제거합니다.
