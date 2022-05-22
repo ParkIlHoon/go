@@ -19,18 +19,18 @@ public class TestController {
     @GetMapping("/routines")
     public String routines(@RequestParam(value = "theme", required = false) String theme, Model model) {
         model.addAttribute("theme", Objects.requireNonNullElse(theme, "light"));
-        return "routine/index";
+        return "routine/main";
     }
 
     @GetMapping("/records")
     public String records(@RequestParam(value = "theme", required = false) String theme, Model model) {
         model.addAttribute("theme", Objects.requireNonNullElse(theme, "light"));
-        return "record/index";
+        return "record/main";
     }
 
     @GetMapping("/statistics")
     public String statistics(@RequestParam(value = "theme", required = false) String theme, Model model) {
         model.addAttribute("theme", Objects.requireNonNullElse(theme, "light"));
-        return "statistic/index";
+        return "statistic/main";
     }
 }
