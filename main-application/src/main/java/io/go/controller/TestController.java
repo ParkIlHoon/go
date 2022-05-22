@@ -33,4 +33,10 @@ public class TestController {
         model.addAttribute("theme", Objects.requireNonNullElse(theme, "light"));
         return "statistic/main";
     }
+
+    @GetMapping("/record-exercise")
+    public String exercise(@RequestParam(value = "theme", required = false) String theme, Model model) {
+        model.addAttribute("theme", Objects.requireNonNullElse(theme, "light"));
+        return "exercise/record";
+    }
 }

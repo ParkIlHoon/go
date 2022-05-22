@@ -1,0 +1,322 @@
+<!doctype html>
+<!--
+* Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
+* @version 1.0.0-beta6
+* @link https://tabler.io
+* Copyright 2018-2022 The Tabler Authors
+* Copyright 2018-2022 codecalm.net Paweł Kuna
+* Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
+-->
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments.html :: head"></head>
+<body th:class="'theme-' + ${theme}">
+<div class="page">
+  <header th:replace="fragments.html :: header"></header>
+
+  <div th:replace="fragments.html :: menu"></div>
+
+  <div class="page-wrapper">
+    <div class="container-xl">
+      <!-- Page title -->
+      <div class="page-header d-print-none">
+        <div class="row align-items-center">
+          <div class="col">
+            <h2 class="page-title">
+              오늘 운동을 기록하세요
+            </h2>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="page-body">
+        <div class="row row-cards">
+          <div class="col-md-12 col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex">
+                  <h3 class="card-title">추가할 운동을 선택해주세요</h3>
+                </div>
+
+                <div class="mb-3">
+                  <select type="text" class="form-select tomselected" id="select-labels" value="" tabindex="-1">
+                    <option value="1" data-custom-properties="<span class=&quot;badge bg-blue-lt&quot;>등</span>">데드 리프트</option>
+                    <option value="2" data-custom-properties="<span class=&quot;badge bg-orange-lt&quot;>하체</span>">스쿼트</option>
+                    <option value="3" data-custom-properties="<span class=&quot;badge bg-red-lt&quot;>가슴</span>">벤치 프레스</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="page-body">
+        <div class="row row-cards">
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex">
+                  <h3 class="card-title">
+                    <span class="badge bg-blue-lt">등</span> <label style="padding-left: 5px">데드 리프트</label>
+                  </h3>
+                </div>
+
+                <div class="mb-3">
+                  <div>
+                    <label class="form-label">1 세트</label>
+                    <div style="display: flex">
+                      <div class="input-icon mb-3" style="width: 100px; padding-right: 5px">
+                        <input type="text" value="50" class="form-control" placeholder="무게" disabled>
+                        <span class="input-icon-addon">Kg</span>
+                      </div>
+                      <div class="input-icon mb-3" style="width: 100px; padding-right: 5px">
+                        <input type="text" value="15" class="form-control" placeholder="개수" disabled>
+                        <span class="input-icon-addon">개</span>
+                      </div>
+                      <div class="input-icon mb-3" style="width: 100px; padding-right: 5px">
+                        <input type="text" value="" class="form-control" placeholder="시간" disabled>
+                        <span class="input-icon-addon">초</span>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-colorinput" style="margin-top: 0.35em;">
+                          <input name="color-rounded" type="checkbox" class="form-colorinput-input" checked>
+                          <span class="form-colorinput-color bg-blue rounded-circle"></span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label class="form-label">2 세트</label>
+                    <div style="display: flex">
+                      <div class="input-icon mb-3" style="width: 100px; padding-right: 5px">
+                        <input type="text" value="" class="form-control" placeholder="무게">
+                        <span class="input-icon-addon">Kg</span>
+                      </div>
+                      <div class="input-icon mb-3" style="width: 100px; padding-right: 5px">
+                        <input type="text" value="" class="form-control" placeholder="개수">
+                        <span class="input-icon-addon">개</span>
+                      </div>
+                      <div class="input-icon mb-3" style="width: 100px; padding-right: 5px">
+                        <input type="text" value="" class="form-control" placeholder="시간">
+                        <span class="input-icon-addon">초</span>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-colorinput" style="margin-top: 0.35em;">
+                          <input name="color-rounded" type="checkbox" class="form-colorinput-input">
+                          <span class="form-colorinput-color bg-blue rounded-circle"></span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <div class="col-md-12 text-end">
+                    <a href="#" class="btn btn-info btn-pill col-1">+</a>
+                    <a href="#" class="btn btn-light btn-pill col-1">-</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex">
+                  <h3 class="card-title">
+                    <span class="badge bg-red-lt">가슴</span> <label style="padding-left: 5px">벤치 프레스</label>
+                  </h3>
+                </div>
+
+                <div class="mb-3">
+                  <div>
+                    <label class="form-label">1 세트</label>
+                    <div style="display: flex">
+                      <div class="input-icon mb-3" style="width: 100px; padding-right: 5px">
+                        <input type="text" value="" class="form-control" placeholder="무게">
+                        <span class="input-icon-addon">Kg</span>
+                      </div>
+                      <div class="input-icon mb-3" style="width: 100px; padding-right: 5px">
+                        <input type="text" value="" class="form-control" placeholder="개수">
+                        <span class="input-icon-addon">개</span>
+                      </div>
+                      <div class="input-icon mb-3" style="width: 100px; padding-right: 5px">
+                        <input type="text" value="" class="form-control" placeholder="시간">
+                        <span class="input-icon-addon">초</span>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-colorinput" style="margin-top: 0.35em;">
+                          <input name="color-rounded" type="checkbox" class="form-colorinput-input">
+                          <span class="form-colorinput-color bg-blue rounded-circle"></span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label class="form-label">2 세트</label>
+                    <div style="display: flex">
+                      <div class="input-icon mb-3" style="width: 100px; padding-right: 5px">
+                        <input type="text" value="" class="form-control" placeholder="무게">
+                        <span class="input-icon-addon">Kg</span>
+                      </div>
+                      <div class="input-icon mb-3" style="width: 100px; padding-right: 5px">
+                        <input type="text" value="" class="form-control" placeholder="개수">
+                        <span class="input-icon-addon">개</span>
+                      </div>
+                      <div class="input-icon mb-3" style="width: 100px; padding-right: 5px">
+                        <input type="text" value="" class="form-control" placeholder="시간">
+                        <span class="input-icon-addon">초</span>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-colorinput" style="margin-top: 0.35em;">
+                          <input name="color-rounded" type="checkbox" class="form-colorinput-input">
+                          <span class="form-colorinput-color bg-blue rounded-circle"></span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <div class="col-md-12 text-end">
+                    <a href="#" class="btn btn-info btn-pill col-1">+</a>
+                    <a href="#" class="btn btn-light btn-pill col-1">-</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex">
+                  <h3 class="card-title">
+                    <span class="badge bg-orange-lt">하체</span> <label style="padding-left: 5px">스쿼트</label>
+                  </h3>
+                </div>
+
+                <div class="mb-3">
+                  <div>
+                    <label class="form-label">1 세트</label>
+                    <div style="display: flex">
+                      <div class="input-icon mb-3" style="width: 100px; padding-right: 5px">
+                        <input type="text" value="" class="form-control" placeholder="무게">
+                        <span class="input-icon-addon">Kg</span>
+                      </div>
+                      <div class="input-icon mb-3" style="width: 100px; padding-right: 5px">
+                        <input type="text" value="" class="form-control" placeholder="개수">
+                        <span class="input-icon-addon">개</span>
+                      </div>
+                      <div class="input-icon mb-3" style="width: 100px; padding-right: 5px">
+                        <input type="text" value="" class="form-control" placeholder="시간">
+                        <span class="input-icon-addon">초</span>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-colorinput" style="margin-top: 0.35em;">
+                          <input name="color-rounded" type="checkbox" class="form-colorinput-input">
+                          <span class="form-colorinput-color bg-blue rounded-circle"></span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label class="form-label">2 세트</label>
+                    <div style="display: flex">
+                      <div class="input-icon mb-3" style="width: 100px; padding-right: 5px">
+                        <input type="text" value="" class="form-control" placeholder="무게">
+                        <span class="input-icon-addon">Kg</span>
+                      </div>
+                      <div class="input-icon mb-3" style="width: 100px; padding-right: 5px">
+                        <input type="text" value="" class="form-control" placeholder="개수">
+                        <span class="input-icon-addon">개</span>
+                      </div>
+                      <div class="input-icon mb-3" style="width: 100px; padding-right: 5px">
+                        <input type="text" value="" class="form-control" placeholder="시간">
+                        <span class="input-icon-addon">초</span>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-colorinput" style="margin-top: 0.35em;">
+                          <input name="color-rounded" type="checkbox" class="form-colorinput-input">
+                          <span class="form-colorinput-color bg-blue rounded-circle"></span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <div class="col-md-12 text-end">
+                    <a href="#" class="btn btn-info btn-pill col-1">+</a>
+                    <a href="#" class="btn btn-light btn-pill col-1">-</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="page-body">
+        <div class="row row-cards">
+          <div class="col-md-12 col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="col-12">
+                  <a href="#" class="btn btn-outline-primary w-full">
+                    운동 끝!
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Libs JS -->
+<script src="/libs/tom-select/dist/js/tom-select.base.min.js" defer=""></script>
+<script src="/libs/apexcharts/dist/apexcharts.min.js" defer=""></script>
+<!-- Tabler Core -->
+<script src="js/tabler.min.js"></script>
+<script>
+  // @formatter:off
+  document.addEventListener("DOMContentLoaded", function () {
+    var el;
+    window.TomSelect && (new TomSelect(el = document.getElementById('select-labels'), {
+      copyClassesToDropdown: false,
+      dropdownClass: 'dropdown-menu',
+      optionClass:'dropdown-item',
+      controlInput: '<input>',
+      render:{
+        item: function(data,escape) {
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+        option: function(data,escape){
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+      },
+    }));
+  });
+  // @formatter:on
+</script>
+
+</body>
+</html>
