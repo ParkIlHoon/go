@@ -105,8 +105,8 @@
                       </div>
                       <div class="mb-3">
                         <label class="form-colorinput" style="margin-top: 0.35em;">
-                          <input name="color-rounded" type="checkbox" class="form-colorinput-input">
-                          <span class="form-colorinput-color bg-blue rounded-circle"></span>
+                          <input name="color-rounded" type="checkbox" class="form-colorinput-input" onclick="check(this)">
+                          <span class="form-colorinput-color bg-white rounded-circle"></span>
                         </label>
                       </div>
                     </div>
@@ -150,8 +150,8 @@
                       </div>
                       <div class="mb-3">
                         <label class="form-colorinput" style="margin-top: 0.35em;">
-                          <input name="color-rounded" type="checkbox" class="form-colorinput-input">
-                          <span class="form-colorinput-color bg-blue rounded-circle"></span>
+                          <input name="color-rounded" type="checkbox" class="form-colorinput-input" onclick="check(this)">
+                          <span class="form-colorinput-color bg-white rounded-circle"></span>
                         </label>
                       </div>
                     </div>
@@ -174,8 +174,8 @@
                       </div>
                       <div class="mb-3">
                         <label class="form-colorinput" style="margin-top: 0.35em;">
-                          <input name="color-rounded" type="checkbox" class="form-colorinput-input">
-                          <span class="form-colorinput-color bg-blue rounded-circle"></span>
+                          <input name="color-rounded" type="checkbox" class="form-colorinput-input" onclick="check(this)">
+                          <span class="form-colorinput-color bg-white rounded-circle"></span>
                         </label>
                       </div>
                     </div>
@@ -220,8 +220,8 @@
                       </div>
                       <div class="mb-3">
                         <label class="form-colorinput" style="margin-top: 0.35em;">
-                          <input name="color-rounded" type="checkbox" class="form-colorinput-input">
-                          <span class="form-colorinput-color bg-blue rounded-circle"></span>
+                          <input name="color-rounded" type="checkbox" class="form-colorinput-input" onclick="check(this)">
+                          <span class="form-colorinput-color bg-white rounded-circle"></span>
                         </label>
                       </div>
                     </div>
@@ -244,8 +244,8 @@
                       </div>
                       <div class="mb-3">
                         <label class="form-colorinput" style="margin-top: 0.35em;">
-                          <input name="color-rounded" type="checkbox" class="form-colorinput-input">
-                          <span class="form-colorinput-color bg-blue rounded-circle"></span>
+                          <input name="color-rounded" type="checkbox" class="form-colorinput-input" onclick="check(this)">
+                          <span class="form-colorinput-color bg-white rounded-circle"></span>
                         </label>
                       </div>
                     </div>
@@ -316,6 +316,15 @@
     }));
   });
   // @formatter:on
+</script>
+<script>
+  function check(el) {
+    el.nextElementSibling.classList.remove('bg-white');
+    el.nextElementSibling.classList.add('bg-blue');
+    el.checked = true;
+    el.disabled = true;
+    return true;
+  }
 </script>
 
 </body>
