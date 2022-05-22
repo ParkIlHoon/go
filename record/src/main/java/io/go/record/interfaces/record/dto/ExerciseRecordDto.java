@@ -55,7 +55,10 @@ public class ExerciseRecordDto {
         private LocalDateTime endDatetime;
     }
 
-
+    @Getter
+    @Builder
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
+    @AllArgsConstructor(access = AccessLevel.PRIVATE)
     public static class Create {
         /**
          * <h3>루틴 아이디</h3>

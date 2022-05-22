@@ -3,6 +3,7 @@ package io.go.record.domain.record.entity;
 import io.go.record.interfaces.record.dto.RecordDto;
 import io.go.record.interfaces.record.exception.ExerciseRecordNotFoundException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
@@ -67,6 +68,7 @@ public class Record {
     @Builder
     public Record(long userId) {
         this.userId = userId;
+        this.exerciseRecords = new ArrayList<>();
 
         validate();
     }
