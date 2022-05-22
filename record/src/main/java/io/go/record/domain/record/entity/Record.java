@@ -1,13 +1,14 @@
 package io.go.record.domain.record.entity;
 
 import io.go.record.interfaces.record.dto.RecordDto;
-import io.go.record.interfaces.record.exception.RecordExerciseNotFoundException;
+import io.go.record.interfaces.record.exception.ExerciseRecordNotFoundException;
 import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -58,8 +59,8 @@ public class Record {
     /**
      * <h3>기록된 운동 리스트</h3>
      */
-    @OneToMany(mappedBy = "record", fetch = FetchType.LAZY)
-    private List<RecordExercise> recordExercises;
+    @OneToMany(mappedBy = "record", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<ExerciseRecord> exerciseRecords;
 
 
 
@@ -80,14 +81,14 @@ public class Record {
      * 기록 타임을 세팅합니다.
      * <br>
      * 기록된 운동의 시작일시와 종료일시를 이용해 전체 운동의 시작일시와 종료일시를 세팅합니다.
-     * @throws RecordExerciseNotFoundException 기록된 운동지 존재하지 않는 경우
+     * @throws ExerciseRecordNotFoundException 기록된 운동지 존재하지 않는 경우
      */
     public void setRecordTimes() {
-        Optional<RecordExercise> optionalFirstExercise = recordExercises.stream().sorted(Comparator.comparing(RecordExercise::getStartDatetime)).findFirst();
-        Optional<RecordExercise> optionalLastExercise = recordExercises.stream().sorted(Comparator.comparing(RecordExercise::getEndDatetime).reversed()).findFirst();
+        Optional<ExerciseRecord> optionalFirstExercise = exerciseRecords.stream().sorted(Comparator.comparing(ExerciseRecord::getStartDatetime)).findFirst();
+        Optional<ExerciseRecord> optionalLastExercise = exerciseRecords.stream().sorted(Comparator.comparing(ExerciseRecord::getEndDatetime).reversed()).findFirst();
 
         if (optionalFirstExercise.isEmpty() || optionalLastExercise.isEmpty()) {
-            throw new RecordExerciseNotFoundException("기록된 운동이 존재하지 않습니다.");
+            throw new ExerciseRecordNotFoundException("기록된 운동이 존재하지 않습니다.");
         }
 
         this.startDatetime = optionalFirstExercise.get().getStartDatetime();
@@ -104,9 +105,9 @@ public class Record {
             .userId(userId)
             .startDatetime(startDatetime)
             .endDatetime(endDatetime)
-            .recordExercises(
-                recordExercises.stream()
-                    .map(RecordExercise::toDto)
+            .exerciseRecords(
+                exerciseRecords.stream()
+                    .map(ExerciseRecord::toDto)
                     .collect(Collectors.toList())
             )
             .build();

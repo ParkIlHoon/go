@@ -35,6 +35,6 @@ public class RecordDto {
         /**
          * <h3>기록된 운동 리스트</h3>
          */
-        private List<RecordExerciseDto.Response> recordExercises;
+        private List<ExerciseRecordDto.Response> exerciseRecords;
     }
 }

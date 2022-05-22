@@ -1,6 +1,6 @@
 package io.go.record.domain.record.entity;
 
-import io.go.record.interfaces.record.dto.RecordExerciseDto;
+import io.go.record.interfaces.record.dto.ExerciseRecordDto;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import javax.persistence.Column;
@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @EqualsAndHashCode(of = {"id"})
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class RecordExercise {
+public class ExerciseRecord {
 
     /**
      * <h3>아이디</h3>
@@ -87,7 +87,7 @@ public class RecordExercise {
 
 
     @Builder
-    public RecordExercise(Record record, Long routineId, long exerciseId, int order, int weight, int count, int second, LocalDateTime startDatetime, LocalDateTime endDatetime) {
+    public ExerciseRecord(Record record, Long routineId, long exerciseId, int order, int weight, int count, int second, LocalDateTime startDatetime, LocalDateTime endDatetime) {
         this.record = record;
         this.routineId = routineId;
         this.exerciseId = exerciseId;
@@ -129,8 +129,8 @@ public class RecordExercise {
      * 응답 DTO로 변환합니다.
      * @return 응답 DTO
      */
-    public RecordExerciseDto.Response toDto() {
-        return RecordExerciseDto.Response.builder()
+    public ExerciseRecordDto.Response toDto() {
+        return ExerciseRecordDto.Response.builder()
             .id(id)
             .routineId(routineId)
             .exerciseId(exerciseId)
