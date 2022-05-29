@@ -2,7 +2,7 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org">
 
-<div th:fragment="startExercise" class="page-wrapper">
+<div th:fragment="startExercise(routines)" class="page-wrapper">
   <div class="container-xl">
     <!-- Page title -->
     <div class="page-header d-print-none">
@@ -60,21 +60,19 @@
     <div class="page-body">
       <div class="row row-cards">
 
-        <div class="col-md-6 col-lg-3">
+        <div class="col-md-6 col-lg-3"
+             th:each="routine : ${routines}">
           <div class="card">
             <div class="card-body">
-              <h3 class="card-title">루틴 이름</h3>
-              <p class="text-muted">루틴 운동 설명</p>
+              <h3 class="card-title"
+                  th:text="${routine.getName()}"></h3>
+              <p class="text-muted"
+                 th:text="${routine.getJoinedExerciseNames(' / ')}">루틴 운동 설명</p>
               <div>
-                <span class="badge bg-blue-lt">등</span>
-                <span class="badge bg-red-lt">가슴</span>
-                <span class="badge bg-green-lt">어깨</span>
-                <span class="badge bg-yellow-lt">팔</span>
-                <span class="badge bg-teal-lt">복근</span>
-                <span class="badge bg-orange-lt">하체</span>
-                <span class="badge bg-purple-lt">엉덩이</span>
-                <span class="badge bg-cyan-lt">전신</span>
-                <span class="badge bg-pink-lt">유산소</span>
+                <span class="badge" style="margin-right: 5px"
+                      th:each="detail : ${routine.getDetails()}"
+                      th:text="${detail.getMovementPart().getTitle()}"
+                      th:classappend="${detail.getMovementPart().getClassName()}">등</span>
               </div>
             </div>
             <!-- Card footer -->
@@ -84,42 +82,9 @@
           </div>
         </div>
 
-        <div class="col-md-6 col-lg-3">
-          <div class="card">
-            <div class="card-body">
-              <h3 class="card-title">루틴 이름</h3>
-              <p class="text-muted">루틴 운동 설명</p>
-              <div>
-                <span class="badge bg-blue-lt">등</span>
-                <span class="badge bg-red-lt">가슴</span>
-              </div>
-            </div>
-            <!-- Card footer -->
-            <div class="card-footer" style="text-align: end;">
-              <a href="#" class="btn btn-outline-primary">운동 시작</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="card">
-            <div class="card-body">
-              <h3 class="card-title">루틴 이름</h3>
-              <p class="text-muted">루틴 운동 설명</p>
-              <div>
-                <span class="badge bg-blue-lt">등</span>
-                <span class="badge bg-red-lt">가슴</span>
-              </div>
-            </div>
-            <!-- Card footer -->
-            <div class="card-footer" style="text-align: end;">
-              <a href="#" class="btn btn-outline-primary">운동 시작</a>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
-
+  </div>
 </div>
 
 </html>
