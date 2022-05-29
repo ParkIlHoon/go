@@ -1,0 +1,25 @@
+<!doctype html>
+<!--
+* Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
+* @version 1.0.0-beta6
+* @link https://tabler.io
+* Copyright 2018-2022 The Tabler Authors
+* Copyright 2018-2022 codecalm.net Paweł Kuna
+* Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
+-->
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments.html :: head"></head>
+  <body th:class="'theme-' + ${theme}">
+    <div class="page">
+      <header th:replace="fragments.html :: header"></header>
+
+      <div th:replace="fragments.html :: menu"></div>
+
+      <div th:replace="home/exercise.html :: startExercise"></div>
+    </div>
+
+    <!-- Libs JS -->
+    <!-- Tabler Core -->
+    <script src="js/tabler.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,247 @@
+<!doctype html>
+<!--
+* Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
+* @version 1.0.0-beta6
+* @link https://tabler.io
+* Copyright 2018-2022 The Tabler Authors
+* Copyright 2018-2022 codecalm.net Paweł Kuna
+* Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
+-->
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments.html :: head"></head>
+<body th:class="'theme-' + ${theme}">
+  <div class="page">
+    <header th:replace="fragments.html :: header"></header>
+
+    <div th:replace="fragments.html :: menu"></div>
+
+    <div class="page-wrapper">
+      <div class="container-xl">
+        <!-- Page title -->
+        <div class="page-header d-print-none">
+          <div class="row align-items-center">
+            <div class="col">
+              <!-- Page pre-title -->
+              <div class="page-pretitle">
+                한계란 없다
+              </div>
+              <h2 class="page-title">
+                통계를 확인하고 목표치를 높여봐요 📈
+              </h2>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="page-body">
+          <div class="row row-cards">
+            <div class="col-md-12 col-lg-12">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex">
+                    <h3 class="card-title">운동별로 최소・최대 무게를 알아볼까요?</h3>
+                  </div>
+
+                  <div class="mb-3">
+                    <select type="text" class="form-select tomselected" id="select-labels" value="" tabindex="-1">
+                      <option value="1" data-custom-properties="<span class=&quot;badge bg-blue-lt&quot;>등</span>">데드 리프트</option>
+                      <option value="2" data-custom-properties="<span class=&quot;badge bg-orange-lt&quot;>하체</span>">스쿼트</option>
+                      <option value="3" data-custom-properties="<span class=&quot;badge bg-red-lt&quot;>가슴</span>">벤치 프레스</option>
+                    </select>
+                  </div>
+
+                  <div class="mb-3">
+                    <div class="dropdown">
+                      <a class="dropdown-toggle text-muted" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">지난 7일</a>
+                      <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item active" href="#">지난 7일</a>
+                        <a class="dropdown-item" href="#">지난 1개월</a>
+                        <a class="dropdown-item" href="#">지난 3개월</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="chart-social-referrals" class="mb-3" style="min-height: 288px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Libs JS -->
+  <script src="/libs/tom-select/dist/js/tom-select.base.min.js" defer=""></script>
+  <script src="/libs/apexcharts/dist/apexcharts.min.js" defer=""></script>
+  <!-- Tabler Core -->
+  <script src="js/tabler.min.js"></script>
+  <script>
+    // @formatter:off
+    document.addEventListener("DOMContentLoaded", function () {
+      var el;
+      window.TomSelect && (new TomSelect(el = document.getElementById('select-labels'), {
+        copyClassesToDropdown: false,
+        dropdownClass: 'dropdown-menu',
+        optionClass:'dropdown-item',
+        controlInput: '<input>',
+        render:{
+          item: function(data,escape) {
+            if( data.customProperties ){
+              return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+            }
+            return '<div>' + escape(data.text) + '</div>';
+          },
+          option: function(data,escape){
+            if( data.customProperties ){
+              return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+            }
+            return '<div>' + escape(data.text) + '</div>';
+          },
+        },
+      }));
+    });
+    // @formatter:on
+  </script>
+
+  <script>
+    // @formatter:off
+    document.addEventListener("DOMContentLoaded", function () {
+      window.ApexCharts && (new ApexCharts(document.getElementById('chart-social-referrals'), {
+        chart: {
+          type: "line",
+          fontFamily: 'inherit',
+          height: 288,
+          parentHeightOffset: 0,
+          toolbar: {
+            show: false,
+          },
+          animations: {
+            enabled: false
+          },
+          locales: [{
+            "name": "ko",
+            "options": {
+              "months": [
+                "1월",
+                "2월",
+                "3월",
+                "4월",
+                "5월",
+                "6월",
+                "7월",
+                "8월",
+                "9월",
+                "10월",
+                "11월",
+                "12월"
+              ],
+              "shortMonths": [
+                "1월",
+                "2월",
+                "3월",
+                "4월",
+                "5월",
+                "6월",
+                "7월",
+                "8월",
+                "9월",
+                "10월",
+                "11월",
+                "12월"
+              ],
+              "days": [
+                "일요일",
+                "월요일",
+                "화요일",
+                "수요일",
+                "목요일",
+                "금요일",
+                "토요일"
+              ],
+              "shortDays": ["일", "월", "화", "수", "목", "금", "토"],
+              "toolbar": {
+                "exportToSVG": "SVG 다운로드",
+                "exportToPNG": "PNG 다운로드",
+                "exportToCSV": "CSV 다운로드",
+                "menu": "메뉴",
+                "selection": "선택",
+                "selectionZoom": "선택영역 확대",
+                "zoomIn": "확대",
+                "zoomOut": "축소",
+                "pan": "패닝",
+                "reset": "원래대로"
+              }
+            }
+          }],
+          defaultLocale: 'ko',
+        },
+        fill: {
+          opacity: 1,
+        },
+        stroke: {
+          width: 2,
+          lineCap: "round",
+          curve: "smooth",
+        },
+        series: [{
+          name: "최대 무게",
+          data: [80, 80, 85, 90, 90, 85, 90, 90, 95]
+        },{
+          name: "최소 무게",
+          data: [55, 55, 60, 60, 60, 65, 65, 65, 70]
+        }],
+        grid: {
+          padding: {
+            top: -20,
+            right: 0,
+            left: -4,
+            bottom: -4
+          },
+          strokeDashArray: 4,
+          xaxis: {
+            lines: {
+              show: true
+            }
+          },
+        },
+        xaxis: {
+          labels: {
+            padding: 0,
+            format: 'M/d',
+          },
+          tooltip: {
+            enabled: false
+          },
+          type: 'datetime',
+        },
+        yaxis: {
+          labels: {
+            padding: 4
+          },
+        },
+        labels: [
+          '2020-06-21', '2020-06-22', '2020-06-23', '2020-06-24', '2020-06-25', '2020-06-26', '2020-06-27', '2020-06-28', '2020-06-29'
+        ],
+        colors: ["#1da1f2", "#ea4c89"],
+        legend: {
+          show: true,
+          position: 'bottom',
+          offsetY: 12,
+          markers: {
+            width: 10,
+            height: 10,
+            radius: 100,
+          },
+          itemMargin: {
+            horizontal: 8,
+            vertical: 8
+          },
+        },
+      })).render();
+    });
+    // @formatter:on
+  </script>
+</body>
+</html>

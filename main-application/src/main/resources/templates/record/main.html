@@ -1,0 +1,148 @@
+<!doctype html>
+<!--
+* Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
+* @version 1.0.0-beta6
+* @link https://tabler.io
+* Copyright 2018-2022 The Tabler Authors
+* Copyright 2018-2022 codecalm.net Paweł Kuna
+* Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
+-->
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments.html :: head"></head>
+  <body th:class="'theme-' + ${theme}">
+    <div class="page">
+      <header th:replace="fragments.html :: header"></header>
+
+      <div th:replace="fragments.html :: menu"></div>
+
+      <div class="page-wrapper">
+        <div class="container-xl">
+          <!-- Page title -->
+          <div class="page-header d-print-none">
+            <div class="row align-items-center">
+              <div class="col">
+                <!-- Page pre-title -->
+                <div class="page-pretitle">
+                  수고했어요
+                </div>
+                <h2 class="page-title">
+                  운동 기록을 다시 보아요 🥳
+                </h2>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="page-body">
+            <div class="row row-cards">
+              <div class="col-md-12 col-lg-12">
+                <div class="datepicker-inline" id="datepicker-inline" style="text-align: center"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="page-body">
+            <div class="row row-cards">
+              <div class="col-md-12 col-lg-12">
+                <div class="card card-borderless">
+                  <div class="card-body">
+                    <h3 class="card-title">이 날은 이런 운동을 했어요 😊</h3>
+                    <div class="accordion" id="accordion-example">
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading-1">
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="false">
+                            <span class="badge bg-red-lt">가슴</span>
+                            <label style="padding-left: 5px">벤치 프레스</label>
+                          </button>
+                        </h2>
+                        <div id="collapse-1" class="accordion-collapse collapse" data-bs-parent="#accordion-example" style="">
+                          <div class="accordion-body pt-0">
+                            <div class="form-control-plaintext">20kg 15회</div>
+                            <div class="form-control-plaintext">20kg 15회</div>
+                            <div class="form-control-plaintext">20kg 15회</div>
+                            <div class="form-control-plaintext">20kg 15회</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading-2">
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-2" aria-expanded="false">
+                            <span class="badge bg-orange-lt">하체</span>
+                            <label style="padding-left: 5px">스쿼트</label>
+                          </button>
+                        </h2>
+                        <div id="collapse-2" class="accordion-collapse collapse" data-bs-parent="#accordion-example" style="">
+                          <div class="accordion-body pt-0">
+                            <div class="form-control-plaintext">100kg 20회</div>
+                            <div class="form-control-plaintext">100kg 20회</div>
+                            <div class="form-control-plaintext">100kg 20회</div>
+                            <div class="form-control-plaintext">100kg 20회</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading-3">
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-3" aria-expanded="true">
+                            <span class="badge bg-green-lt">어깨</span>
+                            <label style="padding-left: 5px">사이드 레터럴 레이즈</label>
+                          </button>
+                        </h2>
+                        <div id="collapse-3" class="accordion-collapse collapse" data-bs-parent="#accordion-example" style="">
+                          <div class="accordion-body pt-0">
+                            <div class="form-control-plaintext">4kg 30회</div>
+                            <div class="form-control-plaintext">4kg 30회</div>
+                            <div class="form-control-plaintext">4kg 30회</div>
+                            <div class="form-control-plaintext">4kg 30회</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="page-body">
+            <div class="row row-cards">
+              <div class="col-md-12 col-lg-12">
+                <div class="card card-borderless">
+                  <div class="card-body">
+                    <div style="text-align: center">
+                      <h3>이 날은 운동을 하지 않았군요...</h3>
+                      😭😭😭😭😭
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Libs JS -->
+    <script src="/libs/litepicker/dist/litepicker.js"></script>
+    <!-- Tabler Core -->
+    <script src="js/tabler.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      window.Litepicker && (new Litepicker({
+        element: document.getElementById('datepicker-inline'),
+        buttonText: {
+          previousMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="15 6 9 12 15 18" /></svg>`,
+          nextMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="9 6 15 12 9 18" /></svg>`,
+        },
+        inlineMode: true,
+        lang: "ko-KR",
+        highlightedDays: [ '2022-05-21', '2022-05-22', '2022-05-25' ]
+      }));
+    });
+  </script>
+  </body>
+</html>
