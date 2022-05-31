@@ -37,6 +37,15 @@ public interface RoutineService {
     List<RoutineDto.Response> getRoutinesByUser(long userId);
 
     /**
+     * 루틴 목록을 조회합니다.
+     *
+     * @param userId    사용자 아이디
+     * @param isDeleted 삭제 여부
+     * @return 사용자 아이디에 해당하는 루틴 목록
+     */
+    List<RoutineDto.Response> getRoutinesByUser(long userId, boolean isDeleted);
+
+    /**
      * 루틴의 운동을 세팅합니다.
      *
      * @param routineId  루틴 아이디

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RoutineRepository extends JpaRepository<Routine, Long> {
-
     List<Routine> findAllByUserId(long userId);
+
+    List<Routine> findAllByUserIdAndIsDeleted(long userId, boolean isDeleted);
 }

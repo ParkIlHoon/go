@@ -7,6 +7,7 @@ import io.go.routine.domain.routine.repository.RoutineRepository;
 import io.go.routine.domain.routine.vo.Set;
 import io.go.routine.interfaces.routine.dto.RoutineDetailDto;
 import io.go.routine.interfaces.routine.dto.RoutineDto;
+import io.go.routine.interfaces.routine.dto.RoutineDto.Response;
 import io.go.routine.interfaces.routine.service.RoutineService;
 import java.util.List;
 import java.util.Optional;
@@ -46,6 +47,11 @@ public class RoutineServiceImpl implements RoutineService {
     @Override
     public List<RoutineDto.Response> getRoutinesByUser(long userId) {
         return routineRepository.findAllByUserId(userId).stream().map(Routine::toDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Response> getRoutinesByUser(long userId, boolean isDeleted) {
+        return routineRepository.findAllByUserIdAndIsDeleted(userId, isDeleted).stream().map(Routine::toDto).collect(Collectors.toList());
     }
 
     @Override
