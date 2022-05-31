@@ -29,14 +29,14 @@
         <!-- Page title actions -->
         <div class="col-auto ms-auto d-print-none">
           <div class="btn-list">
-            <a th:href="'/record-exercise?theme=' + ${theme}" class="btn btn-outline-primary d-none d-sm-inline-block">
+            <a th:href="@{/exercise/record(theme=${theme})}" class="btn btn-outline-primary d-none d-sm-inline-block">
               <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-player-play" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                 <path d="M7 4v16l13 -8z"></path>
               </svg>
               운동 시작
             </a>
-            <a th:href="'/record-exercise?theme=' + ${theme}" class="btn btn-outline-primary d-sm-none btn-icon" aria-label="운동 시작">
+            <a th:href="@{/exercise/record(theme=${theme})}" class="btn btn-outline-primary d-sm-none btn-icon" aria-label="운동 시작">
               <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-player-play" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                 <path d="M7 4v16l13 -8z"></path>
@@ -77,7 +77,7 @@
             </div>
             <!-- Card footer -->
             <div class="card-footer" style="text-align: end;">
-              <a href="#" class="btn btn-outline-primary">운동 시작</a>
+              <a th:href="@{/exercise/record(routineId=${routine.getId()}, theme=${theme})}" class="btn btn-outline-primary">운동 시작</a>
             </div>
           </div>
         </div>
